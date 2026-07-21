@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qubes · CTM</title>
-  <!-- ШРИФТ UNBOUNDED -->
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -24,7 +23,6 @@
       margin: 0;
     }
 
-    /* Главный контейнер – светлый хаб */
     .hub {
       max-width: 820px;
       width: 100%;
@@ -41,7 +39,7 @@
 
     .hub-header {
       text-align: center;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
       letter-spacing: 2px;
       font-weight: 300;
       color: #7f6e5d;
@@ -80,7 +78,7 @@
       font-family: 'Unbounded', sans-serif;
     }
 
-    /* Список строк */
+    /* ===== ОСНОВНЫЕ СТРОКИ ===== */
     .hub-lines {
       display: flex;
       flex-direction: column;
@@ -88,7 +86,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Строки – светлая элегантность */
     .line {
       position: relative;
       background: #fcf9f6;
@@ -136,25 +133,6 @@
       transition: transform 0.2s ease;
     }
 
-    .badge-new {
-      position: relative;
-      z-index: 2;
-      background: rgba(200, 120, 80, 0.12);
-      font-size: 0.5rem;
-      font-weight: 500;
-      padding: 0.15rem 0.7rem;
-      border-radius: 40px;
-      color: #8f6a4b;
-      border: 1px solid rgba(180, 120, 80, 0.15);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-family: 'Unbounded', sans-serif;
-      backdrop-filter: blur(4px);
-      margin-left: 0.5rem;
-      vertical-align: middle;
-    }
-
-    /* ===== СВЕТЛЫЙ ХОВЕР ===== */
     .line:hover {
       transform: scale(1.02) translateY(-2px);
       background: #ffffff;
@@ -215,7 +193,7 @@
       100% { transform: translate(-0.5px, 0.2px) skewX(0.3deg); text-shadow: -1px 0 rgba(180,120,80,0.1), 1px 0 rgba(80,120,180,0.05); }
     }
 
-    /* ===== НОВЫЙ БЛОК CTM ver2 ===== */
+    /* ===== БЛОК CTM ver2 (нижний с рекламой) ===== */
     .ctm-block {
       margin: 2rem 0 1.8rem;
       background: #fcf8f3;
@@ -303,30 +281,48 @@
       font-size: 0.7rem;
     }
 
-    .ctm-button-wrap {
+    .ctm-buttons {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 1rem;
       margin-top: 0.6rem;
     }
 
-    .ctm-download-btn {
+    .ctm-btn {
       display: inline-block;
       background: #ffffff;
       border: 1px solid #cdc0b2;
       border-radius: 60px;
-      padding: 0.9rem 2.8rem;
+      padding: 0.9rem 2.4rem;
       font-family: 'Unbounded', sans-serif;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #3d2e1f;
       text-decoration: none;
       transition: all 0.2s ease;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
       letter-spacing: 0.5px;
       background: linear-gradient(145deg, #fefcf9, #f6f0ea);
+      text-align: center;
     }
 
-    .ctm-download-btn:hover {
+    .ctm-btn-primary {
+      background: linear-gradient(145deg, #8a6b4b, #6b4f35);
+      border-color: #7a5f45;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(100, 70, 40, 0.15);
+    }
+
+    .ctm-btn-primary:hover {
+      background: linear-gradient(145deg, #9a7b5b, #7a5f45);
+      border-color: #8a6b4b;
+      box-shadow: 0 6px 20px rgba(100, 70, 40, 0.2);
+      transform: scale(1.02) translateY(-2px);
+      color: #ffffff;
+    }
+
+    .ctm-btn:hover {
       background: #ffffff;
       border-color: #b09a85;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05), 0 0 0 1px #d6cbbc inset;
@@ -334,7 +330,11 @@
       color: #1f160e;
     }
 
-    /* Строка 5 (VK) — скрыта, показывается при скролле */
+    .ctm-btn-primary:hover {
+      color: #ffffff;
+    }
+
+    /* Строка 5 (VK) */
     .hidden-line-wrapper {
       margin-top: 1.2rem;
       padding-top: 1rem;
@@ -388,7 +388,6 @@
       transform: scale(1.01);
     }
 
-    /* подпись */
     .hub-footer {
       margin-top: 1.8rem;
       text-align: center;
@@ -401,21 +400,19 @@
       font-family: 'Unbounded', sans-serif;
     }
 
-    /* адаптив */
     @media (max-width: 600px) {
       .hub { padding: 1.8rem 1.2rem; }
       .line { font-size: 0.85rem; padding: 0.8rem 1rem; }
       .ctm-big { font-size: 2.2rem; letter-spacing: 3px; }
       .ctm-promo-grid { gap: 0.5rem; }
       .ctm-promo-item { font-size: 0.65rem; padding: 0.2rem 1rem; }
-      .ctm-download-btn { padding: 0.7rem 1.8rem; font-size: 0.85rem; }
+      .ctm-btn { padding: 0.7rem 1.5rem; font-size: 0.8rem; }
       .line-extra { font-size: 0.75rem; padding: 0.6rem 1.2rem; }
     }
 
     .hub::-webkit-scrollbar { width: 4px; background: #ede7e0; border-radius: 20px; }
     .hub::-webkit-scrollbar-thumb { background: #cbbfb2; border-radius: 20px; }
 
-    /* легкий акцент */
     .hub::before {
       content: '';
       position: absolute;
@@ -445,11 +442,16 @@
       </div>
     </div>
 
-    <!-- 4 основные строки -->
+    <!-- ===== ОСНОВНЫЕ СТРОКИ ===== -->
     <div class="hub-lines">
+      <!-- CTM с подробным описанием -->
+      <a href="https://efatcat.github.io/qubes2cdm" class="line" target="_blank" rel="noopener noreferrer">
+        <span>✦ ver2 CTM (классы, трейлы, моды)</span>
+        <div class="glitch-flicker"></div>
+      </a>
+
       <a href="https://efatcat.github.io/qubes2-zerkalo" class="line" target="_blank" rel="noopener noreferrer">
         <span>✦ ver2 Summer (биомы)</span>
-        <span class="badge-new">новое</span>
         <div class="glitch-flicker"></div>
       </a>
       <a href="https://efatcat.github.io/kolblocks/ver2/elo" class="line" target="_blank" rel="noopener noreferrer">
@@ -466,29 +468,30 @@
       </a>
     </div>
 
-    <!-- ===== БЛОК CTM ver2 ===== -->
+    <!-- ===== БЛОК CTM ver2 (нижний с рекламой) ===== -->
     <div class="ctm-block">
       <div class="ctm-header">
         <span class="ctm-big">CTM</span>
         <span class="ctm-badge">ver2 · обновление</span>
       </div>
 
-      <!-- большая реклама: буквы CTM уже сверху, добавим надписи -->
       <div class="ctm-promo-grid">
         <span class="ctm-promo-item">🔥 <strong>Забирай новые трейлы</strong></span>
         <span class="ctm-promo-item">🎁 <span class="code">УТЫТЁФ2507</span> <span style="font-weight:300;margin-left:4px;">промокод на трейл</span></span>
         <span class="ctm-promo-item">🌀 <span class="code">ВИХРЬ22</span> <span style="font-weight:300;margin-left:4px;">промокод на глаза вихря</span></span>
       </div>
 
-      <!-- кнопка скачивания -->
-      <div class="ctm-button-wrap">
-        <a href="https://efatcat.github.io/downloadQB" class="ctm-download-btn" target="_blank" rel="noopener noreferrer">
+      <div class="ctm-buttons">
+        <a href="https://efatcat.github.io/qubes2cdm" class="ctm-btn ctm-btn-primary" target="_blank" rel="noopener noreferrer">
+          🚀  ver2 CTM
+        </a>
+        <a href="https://efatcat.github.io/downloadQB" class="ctm-btn" target="_blank" rel="noopener noreferrer">
           ⬇  Скачивай моды на QB
         </a>
       </div>
     </div>
 
-    <!-- Строка 5 – VK, появляется при скролле -->
+    <!-- Строка 5 – VK -->
     <div class="hidden-line-wrapper">
       <a href="https://vk.com/club237311687" class="line-extra" target="_blank" rel="noopener noreferrer">
         📱  vk.com/club237311687  ·  все обновления
